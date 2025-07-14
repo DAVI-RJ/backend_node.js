@@ -39,9 +39,8 @@ cd backend_node.js
 		DB_PASS=sua_senha
 		DB_NAME=seu_banco_de_dados
 		DB_DIALECT=postgres
-
-JWT_SECRET=sua_chave_secreta_jwt
-PORT=3000
+    JWT_SECRET=sua_chave_secreta_jwt
+    PORT=3000
 
    As configurações específicas do Sequelize, como as definidas no config/config.js (geradas pelo Sequelize-CLI), devem ser ajustadas conforme seu ambiente local e sistema operacional. Cada ambiente pode ter variações em como o banco de dados é acessado.
  * Execute as migrações do banco de dados (se aplicável):
