@@ -1,4 +1,4 @@
-import Sequelize, { Model } from "sequelize"; 
+import Sequelize, { Model} from "sequelize"; 
 
 
 class Address extends Model {
@@ -13,10 +13,14 @@ class Address extends Model {
     },
     {
       sequelize,
+      tableName: "addresses",
+      timestamps: true,
+      underscored: true
     });
   }
   static associate(models){
     this.hasMany(models.Companies);
+    this.hasMany(models.Suppliers);
   }
 }
 

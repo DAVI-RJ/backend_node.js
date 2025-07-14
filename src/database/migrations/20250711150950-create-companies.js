@@ -37,11 +37,11 @@ export default {
       type: Sequelize.ENUM("active", "inactive", "canceled"), 
       defaultValue: "active",
     },
-    createdAt: {
-      allowNull: false,
-      type: Sequelize.DATE
+    created_at: {
+        allowNull: false,
+        type: Sequelize.DATE
     },
-    updatedAt: {
+    updated_at: {
       allowNull: false,
       type: Sequelize.DATE
     },
