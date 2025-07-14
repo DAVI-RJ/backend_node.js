@@ -1,11 +1,27 @@
 import * as Yup from 'yup';
 
+export const userSchema = Yup.object().shape({
+  name: Yup.string().required(),
+  password: Yup.string().required().min(8),
+  nivel_acesso: Yup.string().required(),
+  status: Yup.string().required(),
+});
+
 export const companiesSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
   email: Yup.string().required("Email is required")
     .email("Email must be a valid email address"),
   password: Yup.string().required("Password is required")
     .min(6, "Password must be at least 6 characters long"),
+  passwordconfirm: Yup.string().when("password", (password, field) => 
+	password ? field.required().oneOf([Yup.ref("password")]) : field
+	),
+});
+
+export const loginSchema = Yup.object().shape({
+  email: Yup.string().required("Email is required")
+    .email("Email must be a valid email address"),
+  password: Yup.string().required("Password is required")
 });
 
 export const addressSchema = Yup.object().shape({
@@ -15,8 +31,6 @@ export const addressSchema = Yup.object().shape({
 });
 
 const validate = (schema) => async (req, res, next) => {
-  console.log(schema)
-  console.log(req.body)
   try {
     await schema.validate(req.body, { abortEarly: false });
     next(); 
@@ -33,3 +47,5 @@ const validate = (schema) => async (req, res, next) => {
 
 export const validateAddress = validate(addressSchema);
 export const validateCompanies = validate(companiesSchema);
+export const validateLogin =  validate(loginSchema)
+export const validateUser = validate(userSchema);

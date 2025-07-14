@@ -28,14 +28,14 @@ export default {
     zip: {
       type: Sequelize.STRING(10)
     },
-    createdAt: {
+    created_at: {
+        allowNull: false,
+        type: Sequelize.DATE
+    },
+    updated_at: {
       allowNull: false,
       type: Sequelize.DATE
     },
-    updatedAt: {
-      allowNull: false,
-      type: Sequelize.DATE
-    }
    });
   },
 

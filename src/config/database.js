@@ -12,7 +12,7 @@ define: {
     timestamps: true,
     underscored: true,
     underscoredAll: true,
-    freezeTableName: false,
+    freezeTableName: true,
     },
 };
 
